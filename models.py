@@ -1,24 +1,5 @@
-from sqlalchemy import create_engine
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy import Column, Integer, String
-from sqlalchemy.orm import sessionmaker
-
-SQLALCHEMY_DATABASE_URL = "postgresql://postgres:123@localhost:5432/last_ritual"
-
-engine = create_engine(SQLALCHEMY_DATABASE_URL)
-
-Base = declarative_base()
-
-Session = sessionmaker(autocommit=False, autoflush=False, bind=engine)
-
-
-def get_db():
-    db = Session()
-    try:
-        yield db
-    finally:
-        db.close()
-
+from sqlalchemy import Column, Integer, String, ForeignKey
+from database import Base, engine
 
 class Vid_tovar(Base):
     __tablename__ = "vid_tovar"
@@ -26,5 +7,20 @@ class Vid_tovar(Base):
     id = Column(Integer, primary_key=True, index=True)
     name = Column(String)
 
+class Tovar(Base):
+    __tablename__ = "tovar"
 
-Base.metadata.create_all(bind=engine)
+    id = Column(Integer, primary_key=True, index=True)
+    name_tovar = Column(String)
+    vid_tovar_id = (Integer, ForeignKey("vid_tovar.id"))
+
+
+class Uslugi(Base):
+    __tablename__ = "uslugi"
+
+    id = Column(Integer, primary_key=True, index=True)
+    usluga = Column(String)
+    description = Column(String)
+
+
+

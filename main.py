@@ -1,6 +1,6 @@
-from fastapi import FastAPI
+from fastapi import APIRouter, HTTPException
 
-from models import Vid_tovar
+from models import Vid_tovar, Tovar, Uslugi
 
-app = FastAPI()
 
+main = APIRouter()
