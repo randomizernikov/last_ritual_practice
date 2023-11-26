@@ -28,11 +28,12 @@ header {
     height: 100%;
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 .logo {
     color: white;
-    padding: 0 5% 0 0;
+    text-align: center;
 }
 
 .logo_1 {
@@ -83,7 +84,7 @@ body {
     display: flex;
     justify-content: center;
     text-align: center;
-
+    padding: 2% 0;
 }
 .filters_cont{
     display: inline-block;
@@ -95,16 +96,19 @@ body {
     padding: 2% 0;
     background-color: white;
     opacity: 70%;
-    max-width: 250px;
-    width: 250px;
-    margin: 10% 0;
 }
 .filter_circle p {
     color: rgb(24, 24, 24);;
 }
 .main {
     width: 80%;
+    padding: 2% 2%;
 }
+.main_cont{
+    display: flex;
+
+}
+
 
 /* FOOTER  */
 

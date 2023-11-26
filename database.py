@@ -2,14 +2,16 @@ from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
-SQLALCHEMY_DATABASE_URL = "postgresql://postgres:123@localhost:5432/last_ritual"
+
+SQLALCHEMY_DATABASE_URL = "postgresql://postgres:123@localhost/LastRitual"
 
 engine = create_engine(SQLALCHEMY_DATABASE_URL)
 
-Base = declarative_base()
-
 Session = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
+Base = declarative_base()
+
+db = Session()
 
 def get_db():
     db = Session()
@@ -17,4 +19,3 @@ def get_db():
         yield db
     finally:
         db.close()
-
