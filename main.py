@@ -29,3 +29,7 @@ async def root():
 @app.get("/products")
 async def root():
     return db.query(Product).all()
+
+@app.get("/product_types")
+async def root():
+    return db.query(ProductType).all()
