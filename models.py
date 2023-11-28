@@ -1,13 +1,15 @@
 from sqlalchemy import Column, Integer, String, ForeignKey
-from sqlalchemy.orm import relationship
 from database import Base
 
+
+#типы товаров
 class ProductType(Base):
     __tablename__ = "product_type"
 
     id = Column(Integer, primary_key=True, index=True)
     product_type = Column(String)
 
+#товары
 class Product(Base):
     __tablename__ = "products"
 
