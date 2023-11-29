@@ -4,7 +4,6 @@ from models import Product,ProductType
 from fastapi import APIRouter
 from fastapi.middleware.cors import CORSMiddleware
 
-from fastapi.responses import HTMLResponse
 
 
 Base.metadata.create_all(bind=engine)
